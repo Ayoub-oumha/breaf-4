@@ -62,7 +62,7 @@ products.forEach(element => {
     divProduct.classList = "col-4" + " " + element.category;
     divProduct.classList.add("product");
     divProduct.innerHTML = ` 
-                <img src="images/${element.image}">
+                <img id="${element.id}" class="imgs" src="images/${element.image}">
                 <h4>${element.name}</h4>
                 <div class="rating">
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -72,7 +72,7 @@ products.forEach(element => {
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                 </div>
                 <p>$ <span class="prix" ">${element.price}</span> </p>
-                <button class="btn-addt-carte" id="${element.id}" onclick="AddToCarte(this)">Add to cart</button>
+                <button class="btn-addt-carte " id="${element.id}" onclick="AddToCarte(this)">Add to cart</button>
 
            `
     boxOfProduct.append(divProduct)
@@ -104,7 +104,7 @@ priceValue.onchange = () => {
     prices.forEach((ele, index) => {
 
         // el.style.backgroundColor = "yellow";
-        if ((+ele.textContent) > (+priceValue.value)) {
+        if ((+ele.textContent) > (+priceValue.value) ) {
             Allproduct[index].style.display = "none";
 
         }
@@ -112,13 +112,34 @@ priceValue.onchange = () => {
     })
 }
 
-// add to carte
+// add to LOCALE storage
+let numberOfProduct = localStorage.getItem("numberOfProduct") 
+                      ? parseInt(localStorage.getItem("numberOfProduct")) 
+                      : 0;
 
-let btns = document.querySelectorAll(".btn-addt-carte") ;
+function AddToCarte(btn) {
+    const productId = btn.id - 1;
+    
+    // Check if the product is already in local storage
+    if (!localStorage.getItem(`name_p_${productId}`)) {
+        // Store product information
+        localStorage.setItem(`name_p_${productId}`, products[productId].name);
+        localStorage.setItem(`price_p_${productId}`, products[productId].price);
+        localStorage.setItem(`img_p_${productId}`, products[productId].image);
 
-function AddToCarte(btn){
-    localStorage.setItem(`neme_p_${btn.id -1}` , products[btn.id -1].name);
-    localStorage.setItem(`price_p_${btn.id -1}` , products[btn.id -1].price);
-    localStorage.setItem(`img_p_${btn.id -1}` , products[btn.id -1].image);
+        // Increment and store the product count
+        numberOfProduct++;
+        localStorage.setItem("numberOfProduct", numberOfProduct);
+    }
 }
 
+// onclick sur images voir detais
+let imgs = document.querySelectorAll(".imgs");
+imgs.forEach(ele =>{
+    ele.addEventListener('click',()=>{
+        localStorage.setItem("id-img-detail", `${ele.id}`)
+        window.open("/product-detail.html");
+    })
+   
+   
+})

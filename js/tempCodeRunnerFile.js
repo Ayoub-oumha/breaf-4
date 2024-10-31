@@ -1,1 +1,1 @@
-.btn-addt-carte
+TotalOfAllPr()  ;
