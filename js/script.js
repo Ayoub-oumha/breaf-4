@@ -1,31 +1,3 @@
-// JS for Single product detail
-
-
-// var ProductImg = document.getElementById("product-img");//larger image
-// var SmallImg = document.getElementsByClassName("small-img");//it returns list of 4 images having index 0,1,2,3 as we have 4 images with class name "small0-img" 
-
-// SmallImg[0].onclick = function()//when user click on first image or images at 0 index, it will display as ProdcutImg.src replace with clicked or SmallImg[0], so we get smallimg[0] in bigger form, similarly when click on smallimg[1], it will display in bigger picture and so on 
-// {
-//     ProductImg.src = SmallImg[0].src;   
-// }
-
-// SmallImg[1].onclick = function()
-// {
-//     ProductImg.src = SmallImg[1].src;   
-// }
-
-// SmallImg[2].onclick = function()
-// {
-//     ProductImg.src = SmallImg[2].src;   
-// }
-
-// SmallImg[3].onclick = function()
-// {
-//     ProductImg.src = SmallImg[3].src;   
-// }
-
-// array
-
 const products = [
     { id: 1, name: "T-shirt en coton", price: 19.99, description: "T-shirt confortable en coton bio.", image: "product-1.jpg", category: "T-shirt" },
     { id: 2, name: "Jean slim", price: 49.99, description: "Jean slim fit en denim stretch.", image: "product-2.jpg", category: "Pants" },
@@ -62,7 +34,7 @@ products.forEach(element => {
     divProduct.classList = "col-4" + " " + element.category;
     divProduct.classList.add("product");
     divProduct.innerHTML = ` 
-                <img src="images/${element.image}">
+                <img id="${element.id}" class="imgs" src="images/${element.image}">
                 <h4>${element.name}</h4>
                 <div class="rating">
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -72,53 +44,98 @@ products.forEach(element => {
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                 </div>
                 <p>$ <span class="prix" ">${element.price}</span> </p>
-                <button class="btn-addt-carte" id="${element.id}" onclick="AddToCarte(this)">Add to cart</button>
+                <button class="btn-addt-carte " id="${element.id}" onclick="AddToCarte(this)">Add to cart</button>
 
            `
     boxOfProduct.append(divProduct)
 });
 
-// part of filter use selecter by type
 let Allproduct = document.querySelectorAll(".product");
 let categorySelect = document.getElementById("category-select");
-categorySelect.addEventListener("change", () => {
-
-    Allproduct.forEach((ele) => {
-        ele.style.display = "block";
-        (document.getElementById("range").value) = 100;
-        outpotRange.textContent = range.value + "$";
-        if (!ele.classList.contains(`${categorySelect.value}`)) {
-
-            ele.style.display = "none";
-        }
-        if (categorySelect.value == "Default") {
-            ele.style.display = "block";
-        }
-    })
-})
-
-//   type of selector use price
 let priceValue = document.getElementById("range");
-priceValue.onchange = () => {
-    let prices = document.querySelectorAll(".prix")
-    prices.forEach((ele, index) => {
 
-        // el.style.backgroundColor = "yellow";
-        if ((+ele.textContent) > (+priceValue.value)) {
-            Allproduct[index].style.display = "none";
 
-        }
-        else (Allproduct[index].style.display = "block")
-    })
+// Function to filter products based on category and price
+function filterProducts() {
+    let selectedCategory = categorySelect.value;
+    let maxPrice = +priceValue.value;
+
+    Allproduct.forEach((product, index) => {
+        let productPrice = +product.querySelector(".prix").textContent; // Assuming .prix holds the price value for each product
+        let matchesCategory = selectedCategory === "Default" || product.classList.contains(selectedCategory);
+        let matchesPrice = productPrice <= maxPrice;
+
+        // Display product only if it matches both category and price criteria
+        product.style.display = matchesCategory && matchesPrice ? "block" : "none";
+    });
+
+    // Update the output range text
+    outpotRange.textContent = maxPrice + "$";
 }
 
-// add to carte
+// Attach event listeners
+categorySelect.addEventListener("change", filterProducts);
+priceValue.addEventListener("change", filterProducts);
 
-let btns = document.querySelectorAll(".btn-addt-carte") ;
+// Initial display
+filterProducts();
 
-function AddToCarte(btn){
-    localStorage.setItem(`neme_p_${btn.id -1}` , products[btn.id -1].name);
-    localStorage.setItem(`price_p_${btn.id -1}` , products[btn.id -1].price);
-    localStorage.setItem(`img_p_${btn.id -1}` , products[btn.id -1].image);
+
+
+
+
+
+
+
+
+
+// Get the existing number of products or initialize it to 0 if none
+let numberOfProduct = localStorage.getItem("numberOfProduct") 
+                      ? parseInt(localStorage.getItem("numberOfProduct")) 
+                      : 0;
+
+function AddToCarte(btn) {
+    // Fetch the product ID and related product details
+    const productId = btn.id - 1;
+    const product = products[productId];
+
+    // Retrieve the current cart from local storage, or initialize an empty array if none exists
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the product already exists in the cart
+    let existingProduct = cart.find(item => item.id === productId);
+
+    if (existingProduct) {
+        // If product exists, increase the quantity
+        existingProduct.quantity++;
+    } else {
+        // Add a new product with quantity 1
+        cart.push({
+            id: productId,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1
+        });
+        // Increment the product count
+        numberOfProduct++;
+    }
+
+    // Update local storage with the new cart and product count
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem("numberOfProduct", numberOfProduct);
 }
 
+// Set up click event for "Add to Cart" buttons
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", () => AddToCarte(btn));
+});
+
+// View details on image click
+let imgs = document.querySelectorAll(".imgs");
+imgs.forEach(ele => {
+    ele.addEventListener('click', () => {
+        localStorage.setItem("id-img-detail", `${ele.id}`);
+        window.open("/product-detail.html");
+    });
+});
