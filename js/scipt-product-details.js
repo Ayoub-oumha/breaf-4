@@ -4,7 +4,7 @@ function galleryImg(photo){
 }
 
 const products = [
-    { id: 1, name: "T-shirt en coton", price: 19.99, description: "T-shirt confortable en coton bio.", image: "product-1.jpg", category: "T-shirt" },
+    { id: 1, name: "T-shirt en coton", price: 19.99, description: "T-shirt confortable en coton bio.", image: "product-1.jpg",  category: "T-shirt" , img1 : "gallery-1.jpg" , img2 : "gallery-2.jpg", img3 : "gallery-3.jpg", img4 : "gallery-4.jpg"  },
     { id: 2, name: "Jean slim", price: 49.99, description: "Jean slim fit en denim stretch.", image: "product-2.jpg", category: "Pants" },
     { id: 3, name: "Sweat à capuche", price: 35.99, description: "Sweat à capuche doux et confortable.", image: "product-3.jpg", category: "T-shirt" },
     { id: 4, name: "Robe d'été", price: 29.99, description: "Robe légère parfaite pour l'été.", image: "product-4.jpg", category: "T-shirt" },
@@ -24,6 +24,8 @@ function changeinof(){
     let shortImgs = document.querySelectorAll(".shortImg");
     let titleOfimg = document.getElementById("titleOfimg")
     let idOfImage = parseInt(localStorage.getItem("id-img-detail"))  ;
+    let desciptionOfimg =  document.getElementById("desciptionOfimg")
+    let priceOfimg =  document.getElementById("priceOfimg")
     products.forEach((ele , index)=>{
         
         
@@ -31,10 +33,13 @@ function changeinof(){
             console.log(ele.id),
             console.log(index)
             bigImg.src = "images/" +  products[index].image;
-
+            shortImgs[0].src =   "images/" +  products[index].img1;
+            shortImgs[1].src =   "images/" +  products[index].img2;
+            shortImgs[2].src =   "images/" +  products[index].img3;
+            shortImgs[3].src =   "images/" +  products[index].img4;
             titleOfimg.innerHTML =  products[index].name ;
-
-
+            priceOfimg.innerHTML =  products[index].price ;
+            desciptionOfimg.innerHTML =  products[index].description;
         }
        
     })

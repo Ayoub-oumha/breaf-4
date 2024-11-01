@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Order Form</title>
+    <style>
+        /* Container for the form and order summary */
+        .d-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* Form styling */
+        .form-container {
+            background: #fff;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .form-container span {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container .required {
+            color: red;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff523b;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Order summary styling */
+        .Yorder {
+            background: #fff;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .Yorder table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .Yorder th, .Yorder td {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .Yorder th {
+            color: #ff523b;
+            font-size: 1.2em;
+        }
+
+        .Yorder div {
+            margin: 10px 0;
+        }
+
+        .Yorder p {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .Yorder button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff523b;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Header styling */
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title h2 {
+            font-size: 2em;
+            color: #ff523b;
+            position: relative;
+        }
+
+        .title h2::after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            background: #ff523b;
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .d-flex {
+                flex-direction: column;
+            }
+
+            .Yorder {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="account-page">
+        <div class="container">
+            <div class="title">
+                <h2>Product Order Form</h2>
+            </div>
+            <div class="d-flex">
+                <!-- Product Order Form -->
+                <form class="form-container" action="" method="">
+                    <label>
+                        <span class="fname">First Name <span class="required">*</span></span>
+                        <input type="text" name="fname" required value="Amine">
+                    </label>
+                    <label>
+                        <span class="lname">Last Name <span class="required">*</span></span>
+                        <input type="text" name="lname" required value="Hmidouche">
+                    </label>
+                    <label>
+                        <span>Company Name (Optional)</span>
+                        <input type="text" name="cn" value="yc">
+                    </label>
+                    <label>
+                        <span>Country <span class="required">*</span></span>
+                        <select name="selection" required>
+                            <option value="Mexico" selected>Mexico</option>
+                            <!-- Add other countries as needed -->
+                        </select>
+                    </label>
+                    <label>
+                        <span>Street Address <span class="required">*</span></span>
+                        <input type="text" name="houseadd" placeholder="House number and street name" required value="Route Rabat Imm 5 N°14">
+                    </label>
+                    <label>
+                        <span>&nbsp;</span>
+                        <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
+                    </label>
+                    <label>
+                        <span>Town / City <span class="required">*</span></span>
+                        <input type="text" name="city" required value="Tanger">
+                    </label>
+                    <label>
+                        <span>State / County <span class="required">*</span></span>
+                        <input type="text" name="state" required>
+                    </label>
+                    <label>
+                        <span>Postcode / ZIP <span class="required">*</span></span>
+                        <input type="text" name="zip" required value="90060">
+                    </label>
+                    <label>
+                        <span>Phone <span class="required">*</span></span>
+                        <input type="tel" name="phone" required>
+                    </label>
+                    <label>
+                        <span>Email Address <span class="required">*</span></span>
+                        <input type="email" name="email" required value="amine.devinfo@gmail.com">
+                    </label>
+                    <button type="submit">Submit</button>
+                </form>
+
+                <!-- Order Summary -->
+                <div class="Yorder">
+                    <table>
+                        <tr>
+                            <th colspan="2">Your order</th>
+                        </tr>
+                        <tr>
+                            <td>Product Name x 2 (Qty)</td>
+                            <td>$88.00</td>
+                        </tr>
+                        <tr>
+                            <td>Subtotal</td>
+                            <td>$88.00</td>
+                        </tr>
+                        <tr>
+                            <td>Shipping</td>
+                            <td style="color: #2ECC71;">Free shipping</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <div>
+                        <input type="radio" name="payment" value="bank" checked> Direct Bank Transfer
+                    </div>
+                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
+                    <div>
+                        <input type="radio" name="payment" value="cod"> Cash on Delivery
+                    </div>
+                    <div>
+                        <input type="radio" name="payment" value="paypal"> PayPal
+                        <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="PayPal Logo" width="50">
+                    </div>
+                    <button type="button">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

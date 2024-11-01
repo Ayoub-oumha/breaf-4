@@ -441,7 +441,7 @@ td input{
 }
 td a{
     color: #ff523b;
-    ffont-size: 12px;
+    font-size: 12px;
 }
 td img{
     width: 80px;
@@ -590,15 +590,20 @@ form a{
     padding: 1rem;
     max-width: 1200px;
     margin: auto;
+    margin-top: 20px;
   }
   
   /* Image Section */
   .main-img {
     flex: 1;
+    width: 50%;
+  }
+  .main-title{
+    width: 50%;
   }
   
   .main-img-box img {
-    width: 100%;
+    width: 300px ;
     border-radius: 10px;
   }
   
@@ -729,3 +734,137 @@ form a{
       width: 60px;
     }
   }
+
+
+
+  /* style of checkout  */
+  /* Account Page Styling */
+  .account-page {
+    padding: 50px 0;
+    background: radial-gradient(#fff, #ffd6d6);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title h2 {
+    font-size: 2em;
+    color: #ff523b;
+}
+
+/* Form and Order Section */
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-container {
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form-container span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container .required {
+    color: red;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff523b;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.Yorder {
+    background: #fff;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.Yorder table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Yorder th, .Yorder td {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.Yorder th {
+    color: #ff523b;
+    font-size: 1.2em;
+}
+
+.Yorder div {
+    margin: 10px 0;
+}
+
+.Yorder p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.Yorder button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff523b;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .Yorder {
+        margin-top: 20px;
+    }
+}

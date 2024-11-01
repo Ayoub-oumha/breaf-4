@@ -1,0 +1,131 @@
+/* style of checkout  */
+  /* Account Page Styling */
+  .account-page {
+    padding: 50px 0;
+    background: radial-gradient(#fff, #ffd6d6);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title h2 {
+    font-size: 2em;
+    color: #ff523b;
+}
+
+/* Form and Order Section */
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-container {
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.form-container span {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container .required {
+    color: red;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff523b;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.Yorder {
+    background: #fff;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.Yorder table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Yorder th, .Yorder td {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+.Yorder th {
+    color: #ff523b;
+    font-size: 1.2em;
+}
+
+.Yorder div {
+    margin: 10px 0;
+}
+
+.Yorder p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.Yorder button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff523b;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .Yorder {
+        margin-top: 20px;
+    }
+}
