@@ -868,3 +868,18 @@ form a{
         margin-top: 20px;
     }
 }
+
+#numberOfproductadded {
+    color: white;
+    background-color: red;
+    width: 25px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 15px;
+    height: 25px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+}

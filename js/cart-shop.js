@@ -57,7 +57,7 @@ function addEventListeners() {
     inputNumbreOfPr.forEach((ele, index) => {
         ele.addEventListener("change", () => {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let product = cart.find(item => item.id == ele.closest("tr").id);
+            let product = cart.find(item => item.id == ele.closest("tr").id);  ////////////////////////////////////////////////
 
             if (product) {
                 product.quantity = parseInt(ele.value);
@@ -65,6 +65,8 @@ function addEventListeners() {
 
                 spanOfprice[index].textContent = (product.price * product.quantity).toFixed(2);
                 TotalOfAllPr();
+                changeInfoOfheader();
+                
             }
         });
     });
@@ -74,16 +76,39 @@ function addEventListeners() {
         ele.addEventListener("click", () => {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             let updatedCart = cart.filter(product => product.id != ele.id);
+           
 
             localStorage.setItem("cart", JSON.stringify(updatedCart));
             localStorage.setItem("numberOfProduct", updatedCart.length);
 
             document.getElementById(ele.id).remove();
             TotalOfAllPr();
+            changeInfoOfheader();
         });
     });
 }
 
 // Initial render
+// headerr
+function changeInfoOfheader(){
+    let priceHeader = document.getElementById("price-header");
+    let numberOfproductadded = document.getElementById("numberOfproductadded")
+    let products = JSON.parse(localStorage.getItem("cart")) || [];
+    let totalePrice = 0 ;
+    let totaleProduct = 0 ;
+    
+    products.forEach(pr =>{
+        totalePrice +=  pr.price * pr.quantity
+        
+        
+    })
+    
+    priceHeader.textContent = totalePrice.toFixed(2)
+    numberOfproductadded.textContent = products.length
+    
+
+}
+
 CreatElementFromLocalStorage();
 TotalOfAllPr();
+changeInfoOfheader();

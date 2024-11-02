@@ -34,44 +34,25 @@
 
         <nav id="nav">
 
-            <img src="images/logo-white.png" class="logo" alt="img-logo">
+            <img src="images/logo-white.png" title="logo" class="logo" />
 
             <ul class="menu-bar-side">
-                <li><a href="index.html" >Home</a></li>
-                <li><a href="Products.html" >Shope</a></li>
-                <li><a href="About.html">about</a></li>
-                <li><a href="contact.html" >contact us</a></li>
+                <li><a href="index.html" style=" all: unset;">Home</a></li>
+                <li><a href="Products.html" style=" all: unset;">Shope</a></li>
+                <li><a href="About.html" style=" all: unset;">about</a></li>
+                <li><a href="contact.html" style=" all: unset;">contact us</a></li>
             </ul>
 
             <ul class="menu-bar">
 
-                <li>&#36;0.00</li>
-                <li><a href="/Carte.html"> <i class='fas fa-shopping-cart'></i> </a> </li>
+                <li>&#36; <span id="price-header">00</span></li>
+                <li><a href="/Carte.html"><span id="numberOfproductadded">0</span> <i class='fas fa-shopping-cart'></i>
+                    </a> </li>
 
             </ul>
 
             <i class="fa fa-bars"></i>
         </nav>
-
-
-        <div class="content">
-
-            <h2 class="heading">
-                Raining Offers For Hot Summer!
-            </h2>
-
-            <h4>
-                25% Off On All Products
-            </h4>
-
-            <button class="shopNow">
-                shop now
-            </button>
-            <button class="findMore">
-                find more
-            </button>
-
-        </div>
 
     </header>
     <!--- end header --->
@@ -111,186 +92,67 @@
          
 
             
-            <div class="col-4">
-                <a href="product-detail.html"><img src="images/product-1.jpg" alt="img"></a>
-                <a href="product-detail.html">
-                    <h4>Red Printed T-shirt</h4>
-                </a>
+            <div class="col-4 T-shirt product" style="display: block;"> 
+                <img id="1" class="imgs" src="images/product-1.jpg">
+                <h4>T-shirt en coton</h4>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star-o" aria-hidden="true"></i>
                 </div>
-                <p>$50.00</p>
-            </div>
+                <p>$ <span class="prix">19.99</span> </p>
+                <button class="btn-addt-carte " id="1" onclick="AddToCarte(this)"><i class="fas fa-shopping-cart"></i>  Add to cart</button>
 
-            <div class="col-4">
-                <img src="images/product-2.jpg" alt="img">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
+           </div>
+           <div class="col-4 Pants product" style="display: block;"> 
+            <img id="2" class="imgs" src="images/product-2.jpg">
+            <h4>Jean slim</h4>
+            <div class="rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
             </div>
+            <p>$ <span class="prix">49.99</span> </p>
+            <button class="btn-addt-carte " id="2" onclick="AddToCarte(this)"><i class="fas fa-shopping-cart"></i>  Add to cart</button>
 
-            <div class="col-4">
-                <img src="images/product-3.jpg" alt="img">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
+       </div>
+       <div class="col-4 T-shirt product" style="display: block;"> 
+        <img id="3" class="imgs" src="images/product-3.jpg">
+        <h4>Sweat à capuche</h4>
+        <div class="rating">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        </div>
+        <p>$ <span class="prix">35.99</span> </p>
+        <button class="btn-addt-carte " id="3" onclick="AddToCarte(this)"><i class="fas fa-shopping-cart"></i>  Add to cart</button>
 
-            <div class="col-4">
-                <img src="images/product-4.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+   </div>
+   <div class="col-4 T-shirt product" style="display: block;"> 
+    <img id="4" class="imgs" src="images/product-4.jpg">
+    <h4>Robe d'été</h4>
+    <div class="rating">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+    </div>
+    <p>$ <span class="prix">29.99</span> </p>
+    <button class="btn-addt-carte " id="4" onclick="AddToCarte(this)"><i class="fas fa-shopping-cart"></i>  Add to cart</button>
 
-                </div>
-                <p>$50.00</p>
-            </div>
+</div>
+            
         </div>
 
         
 
-        <h2 class="title">Latest Products</h2>
-        <div class="row">
-
-            <div class="col-4">
-                <img src="images/product-5.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-6.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-7.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-8.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-
-                </div>
-                <p>$50.00</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="images/product-9.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-10.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-11.jpg" alt="">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-12.jpg" alt="o">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-
-                </div>
-                <p>$50.00</p>
-            </div>
-        </div>
 
     </div>
 
@@ -476,8 +338,8 @@
     </div>
 
     <!-----------------JS----------------------->
-
-
+    <script src="./js/Home.js"></script>
+    
 </body>
 
 </html>

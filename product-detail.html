@@ -16,27 +16,29 @@
     <body>      
             <!--making header-->
             <header>
-                <nav id="nav">                  
-                  <img src="images/logo-white.png" class="logo" alt="">
-                  
-                  <ul class="menu-bar-side">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="Products.html" >Shope</a></li>
-                    <li><a href="About.html" >about</a></li>
-                    <li><a href="contact.html" >contact us</a></li>
-                </ul>
-    
-                <ul class="menu-bar">
-    
-                    <li>&#36;0.00</li>
-                    <li><a href="/Carte.html"> <i class='fas fa-shopping-cart'></i> </a> </li>
-    
-                </ul>
-                  
-                  <i class="fa fa-bars"></i>
+
+                <nav id="nav">
+        
+                    <img src="images/logo-white.png" title="logo" class="logo"/>
+        
+                    <ul class="menu-bar-side">
+                        <li><a href="index.html" style=" all: unset;">Home</a></li>
+                        <li><a href="Products.html" style=" all: unset;">Shope</a></li>
+                        <li><a href="About.html" style=" all: unset;">about</a></li>
+                        <li><a href="contact.html" style=" all: unset;">contact us</a></li>
+                    </ul>
+        
+                    <ul class="menu-bar">
+        
+                        <li>&#36; <span id="price-header">00</span></li>
+                        <li><a href="/Carte.html"><span id="numberOfproductadded">0</span> <i class='fas fa-shopping-cart'></i> </a> </li>
+        
+                    </ul>
+        
+                    <i class="fa fa-bars"></i>
                 </nav>
-           
-          </header>
+        
+            </header>
 
     <!------------Single Products Detail-------------->
     <div class="main-box ">
@@ -64,8 +66,8 @@
           </select>
   
           <div class="size-button">
-            <input type="number" value="1" class="number">
-            <button>Add To Card</button>
+            <input type="number" value="1" min="1" id="numberofpro" class="number">
+            <button id="btnAddtoCart">Add To Card</button>
           </div>
   
           <div class="main-info">

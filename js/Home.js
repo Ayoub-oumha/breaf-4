@@ -13,82 +13,6 @@ const products = [
     { id: 12, name: "Pyjama en coton", price: 22.99, description: "Pyjama doux et confortable en coton.", image: "product-12.jpg", category: "T-shirt" }
 ]
 
-// script for range
-let range = document.getElementById("range");
-let outpotRange = document.getElementById("output-range");
-outpotRange.textContent = range.value + "$";
-range.addEventListener("input", (event) => {
-    outpotRange.textContent = event.target.value + "$";
-}
-
-)
-
-
-// box or div of all element
-
-let boxOfProduct = document.getElementById("boxOfProduct");
-// loop for all elemnt
-products.forEach(element => {
-    //creat elemnt
-    let divProduct = document.createElement("div");
-    divProduct.classList = "col-4" + " " + element.category;
-    divProduct.classList.add("product");
-    divProduct.innerHTML = ` 
-                <img id="${element.id}" class="imgs" src="images/${element.image}">
-                <h4>${element.name}</h4>
-                <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$ <span class="prix">${element.price}</span> </p>
-                <button class="btn-addt-carte " id="${element.id}" onclick="AddToCarte(this)"><i class='fas fa-shopping-cart'></i>  Add to cart</button>
-
-           `
-    boxOfProduct.append(divProduct)
-});
-
-let Allproduct = document.querySelectorAll(".product");
-let categorySelect = document.getElementById("category-select");
-let priceValue = document.getElementById("range");
-
-
-// Function to filter products based on category and price
-function filterProducts() {
-    let selectedCategory = categorySelect.value;
-    let maxPrice = +priceValue.value;
-
-    Allproduct.forEach((product, index) => {
-        let productPrice = +product.querySelector(".prix").textContent; // Assuming .prix holds the price value for each product
-        let matchesCategory = selectedCategory === "Default" || product.classList.contains(selectedCategory);
-        let matchesPrice = productPrice <= maxPrice;
-
-        // Display product only if it matches both category and price criteria
-        product.style.display = matchesCategory && matchesPrice ? "block" : "none";
-    });
-
-    // Update the output range text
-    outpotRange.textContent = maxPrice + "$";
-}
-
-// Attach event listeners
-categorySelect.addEventListener("change", filterProducts);
-priceValue.addEventListener("change", filterProducts);
-
-// Initial display
-filterProducts();
-
-
-
-
-
-
-
-
-
-
 // Get the existing number of products or initialize it to 0 if none
 let numberOfProduct = localStorage.getItem("numberOfProduct") 
                       ? parseInt(localStorage.getItem("numberOfProduct")) 
@@ -137,7 +61,7 @@ let imgs = document.querySelectorAll(".imgs");
 imgs.forEach(ele => {
     ele.addEventListener('click', () => {
         localStorage.setItem("id-img-detail", `${ele.id}`);
-        window.open("/product-detail.html" , "_parent");
+        window.open("/product-detail.html" ,"_parent");
     });
 });
 
