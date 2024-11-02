@@ -27,7 +27,7 @@ function AddToCarte(btn) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     // Check if the product already exists in the cart
-    let existingProduct = cart.find(item => item.id === productId);
+    let existingProduct = cart.find(item => item.id === product.id);
 
     if (existingProduct) {
         // If product exists, increase the quantity
@@ -35,7 +35,7 @@ function AddToCarte(btn) {
     } else {
         // Add a new product with quantity 1
         cart.push({
-            id: productId,
+            id: +btn.id,
             name: product.name,
             price: product.price,
             image: product.image,
