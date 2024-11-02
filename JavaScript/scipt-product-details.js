@@ -69,7 +69,7 @@ btnAddtoCart.addEventListener('click', ()=>{
             id: parseInt(idOfImage),
             name: titleOfimg.textContent,
             price: parseFloat(priceOfimg.textContent) ,
-            image: products[parseInt(idOfImage)].image,
+            image: bigImg.src.split("/").pop() , // "product-1.jpg" , // "aa.js", 
             quantity: parseInt( numberOfprodu.value ) 
         });
         }
