@@ -107,6 +107,7 @@
     all: unset;
   }
   
+  */ 
   header .content{
     position:absolute;
     top: 50%;
@@ -115,7 +116,7 @@
     text-transform:capitalize;
     color:#fff;
     width:400px;
-  }
+  } 
   
   
   header .content  .heading{
@@ -155,9 +156,9 @@
     background:var(--orange);
     color:var(--white);
     /* border:1px solid #b8b8b8; */
-  /* } */
+  } 
   
-  /* header .content .findMore{
+   header .content .findMore{
     background:var(--white);
     color:black;
   } 
@@ -167,7 +168,7 @@
   }
   
   
-   */
+   
  
   /*---- media queary min--0px & max--599px ----*/
-   */
+   
